@@ -1,22 +1,26 @@
 <h1 mat-dialog-title class="articulo">Articulo</h1>
 <div mat-dialog-content>
    
-    <mat-form-field appearance="fill">
-        <mat-label>Ingrese Código</mat-label>
-        <input matInput type="text" formControlName="codigo">
-    </mat-form-field>
-    <p></p>
-    <mat-form-field appearance="fill">
-        <mat-label>Ingrese Descripción</mat-label>
-        <input matInput  type="text" formControlName="descripcion">
-    </mat-form-field>
-    <p></p>
-    <mat-form-field appearance="fill">
-        <mat-label>Ingrese Precio</mat-label>
-        <input matInput type="number" formControlName="precio">
-    </mat-form-field>
+    <form [formGroup]="formulario" (submit)="registrar()">
+        <mat-form-field appearance="fill">
+            <mat-label>Ingrese Código</mat-label>
+            <input matInput type="text" formControlName="codigoControl">
+        </mat-form-field>
+        <p></p>
+        <mat-form-field appearance="fill">
+            <mat-label>Ingrese Descripción</mat-label>
+            <input matInput  type="text" formControlName="descripcionControl">
+        </mat-form-field>
+        <p></p>
+        <mat-form-field appearance="fill">
+            <mat-label>Ingrese Precio</mat-label>
+            <input matInput type="number" formControlName="precioControl">
+        </mat-form-field>
+    </form>
+
+    
 </div>
 <div mat-dialog-actions class="botones">
   <button mat-flat-button color="warn" (click)="onNoClick()">Cancelar</button>
-  <button mat-flat-button color="primary" cdkFocusInitial>Confirmar</button>
+  <button mat-flat-button color="primary" (click)="registrar()" cdkFocusInitial>Confirmar</button>
 </div>
